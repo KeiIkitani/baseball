@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('teamname',100);
-            $table->string('name',100);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('comment',100)->nullable();
+            $table->string('match_day',50)->nullable();
+            $table->integer('team_id');
+            $table->integer('players_id');
+            $table->integer('favorite_count')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('movies');
     }
 }
