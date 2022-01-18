@@ -12,18 +12,23 @@
         
     </head>
     <body> 
-        <form method="post" action="/movie/show" enctype="multipart/form_date">
+   
+        <form method="post" action="/movies" enctype="multipart/form-data">
             @csrf
             <h3>相手チーム名</h3>
             <input type="text" name="teamname">
             <h3>試合日</h3>
             <input type="date" name="match_day">
+            <h3>選手名</h3>
+            <input type="text" name="player">
+            <h3>背番号</h3>
+            <input type="number" name="number">
             <h3>動画</h3>
-            <input type="file" name="profile_movie" class="form-control-file">
+            <input type="file" accept="video/" name="movie" class="form-control-file">
             <h3>動画説明</h3>
-            <textarea name="movie_description"></textarea>
+            <textarea name="description"></textarea>
             <input type="submit" value="store">
         </form>
-        <div>[<a href="/movie">back</a>]</div>
+        <div>[<a href="/">back</a>]</div>
     </body>
 </html>

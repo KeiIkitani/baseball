@@ -14,12 +14,12 @@ class CreateMoviesTable extends Migration
     public function up()
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('comment',100)->nullable();
+            $table->increments('id');
             $table->string('match_day',50)->nullable();
-            $table->integer('team_id');
-            $table->integer('players_id');
-            $table->integer('favorite_count')->default(0);
+            $table->integer('team_id')->nullable();
+            $table->integer('player_id')->nullable();
+            $table->string('movie')->nullable();
+            $table->string('description', 200)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

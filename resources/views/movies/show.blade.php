@@ -12,16 +12,35 @@
         
     </head>
     <body> 
-        <h1>{{ $movie->match_day }}{{ $team->teamname }}</h1>
-        <video src="/movies/{{$movie->id}}/create" controls></video>
-        <div>
-            <h3>コメント欄</h3>
-            <h4>{{ $user->name }}</h4>
-            <textarea name="content" placeholder="コメント欄"></textarea>
-        </div> 
-        <a href="/movies/create">プレイ動画の作成</a>
-
+        <h1>{{ $movie->description }}</h1>
+        <video src="{{ $movie->movie}}" controls></video>
+        <h3>VS {{ $movie->team->teamname }}      {{ $movie->match_day }}</h3>
+        <h3>選手名　{{ $movie->player->name }} 背番号　{{ $movie->player->number }}</h3>
+    
         
+        <h3>コメント欄</h3>
+        <form method="POST" action="/comments">
+            @csrf
+	        <div>
+	            <input type="hidden" value="{{$movie->id}}" name="movie_id">
+		        <label for="comment">コメント</label>
+		        <textarea id="comment" name="comment"></textarea>
+	        </div>
+	        <input type="submit" name="btn_submit" value="書き込む">
+        </form>
         
+        <article>
+            @foreach ($comments as $comment)
+                <div class="info">
+                {{--<h2>{{$comment->user->name}}</h2>--}}
+                <time><?php echo date('Y年m月d日 H:i', strtotime($comment['created_at'])); ?></time>
+                </div>
+                <p>{{$comment->comment}}</p>
+            @endforeach
+        </article>
+        
+        <a href="/movies/create">プレー動画の作成</a>
+        
+        <div>[<a href="/">戻る</a>]</div> 
     </body>
 </html>

@@ -12,13 +12,21 @@
         
     </head>
     <body> 
-        <a href="/movies/create">プレイ動画の作成</a>
+    　　<form action="/" method="get">
+    　　      @csrf
+            <input type="text" name="word" value="{{$word}}" placeholder="キーワードを入力">
+            <!-- 検索フォームにキーワードを入れる -->
+            <button type="submit">検索</button>
+    　　</form>
+    　　
+    　　<a href="/movies/create">プレー動画の作成</a>
+
+    <!-- 検索結果の表示 -->
         @foreach ($teams as $team)
-        <h1>{{ $team->teamname }}</h1>
-        @endforeach
-        
-        @foreach ($movies as $movie)
-        <a href='/movies/{{$movie->id}}'><h3>{{ $movie->match_day }}</h3></a>
+            @foreach ($team->movies as $movie)
+                <a href='/movies/{{$movie->id}}'><h1>{{ $movie->description }}</h1></a>
+                <h3>相手チーム：{{ $movie->team->teamname }}　　対戦日：{{ $movie->match_day }}　　選手名：{{ $movie->player->name }}</h3>
+            @endforeach    
         @endforeach
         
     </body>
