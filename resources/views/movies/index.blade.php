@@ -19,13 +19,12 @@
             <button type="submit">検索</button>
     　　</form>
     　　
-    　　<a href="/movies/create">プレー動画の作成</a>
+    　　<a href="/movies/create">[プレー動画の作成]</a>
 
-    <!-- 検索結果の表示 -->
         @foreach ($teams as $team)
             @foreach ($team->movies as $movie)
                 <a href='/movies/{{$movie->id}}'><h1>{{ $movie->description }}</h1></a>
-                <h3>相手チーム：{{ $movie->team->teamname }}　　対戦日：{{ $movie->match_day }}　　選手名：{{ $movie->player->name }}</h3>
+                <h3>相手チーム：{{ $team->teamname }}　　対戦日：{{ $movie->match_day }}　　選手名：{{ $movie->player->name }}</h3>
             @endforeach    
         @endforeach
         

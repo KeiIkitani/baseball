@@ -39,8 +39,14 @@
             @endforeach
         </article>
         
-        <a href="/movies/create">プレー動画の作成</a>
+        <div>[<a href="/movies/create">プレー動画の作成</a>]</div>
         
+        <p class="edit">[<a href="/movies/{{ $movie->id }}/edit">プレー動画の編集</a>]</p>
+        <form action="/movies/{{ $movie->id }}" id="form_{{ $movie->id }}" method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit">プレー動画の削除</button> 
+        </form>
         <div>[<a href="/">戻る</a>]</div> 
     </body>
 </html>

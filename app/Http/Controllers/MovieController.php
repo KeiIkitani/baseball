@@ -9,6 +9,7 @@ use App\User;
 use App\Comment;
 use Illuminate\Http\Request;
 use Storage;
+use Illuminate\Database\Eloquent\Builder;
 
 class MovieController extends Controller
 {
@@ -17,15 +18,14 @@ class MovieController extends Controller
         $word=$request->input('word');
         if($word){
             
-            $teams = Team::whereHas('movies', function($query) use($word){
+            $teams = Team::whereHas('movies', function(Builder $query) use($word){
             $query->where('description','LIKE',"%{$word}%")
             ->orwhere('teamname','LIKE',"%{$word}%")
-            ->orwhere('match_day','LIKE',"%{$word}%")
-            ;
+            ->orwhere('match_day','LIKE',"%{$word}%");
+            })->orwhereHas('players', function(Builder $query) use($word){
+                $query->where('name','LIKE',"%{$word}%");
             })->get();
-            // $teams = Team::whereHas('players', function($query) use($word){
-            // $query->where('name','LIKE',"%{$word}%");
-            // })->get();
+            
             
         }
         else{
@@ -51,18 +51,51 @@ class MovieController extends Controller
         
         //s3アップロード開始
         $file = $request->file('movie');
-        // バケットの`myprefix`フォルダへアップロード
+        // バケットの`baseball`フォルダへアップロード
         $path = Storage::disk('s3')->putFile('baseball', $file, 'public');
-        // アップロードした画像のフルパスを取得
+        // アップロードした動画のフルパスを取得
         $movie->movie = Storage::disk('s3')->url($path);
         
         $team->save();
+        $player->team_id=$team->id;
         $movie->team_id=$team->id; 
         
         $player->save();
         $movie->player_id=$player->id;
         $movie->save();
         
+        return redirect('/');
+    }
+        public function edit(Movie $movie)
+    {
+        return view('movies/edit')->with(['movie' => $movie]);
+    }
+        public function update(Request $request, Movie $movie,Team $team,Player $player)
+    {
+       $team->teamname = $request->teamname;
+        $movie->match_day = $request->match_day;
+        $movie->description = $request->description;
+        $player->name=$request->player;
+        $player->number=$request->number;
+        
+        
+        $file = $request->file('movie');
+        $path = Storage::disk('s3')->putFile('baseball', $file, 'public');
+        $movie->movie = Storage::disk('s3')->url($path);
+        
+        $team->save();
+        $player->team_id=$team->id;
+        $movie->team_id=$team->id; 
+        
+        $player->save();
+        $movie->player_id=$player->id;
+        $movie->save();
+
+        return redirect('/movies/' . $movie->id);
+    }
+        public function delete(Movie $movie)
+    {
+        $movie->delete();
         return redirect('/');
     }
     

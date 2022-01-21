@@ -12,7 +12,8 @@ class PlayersTableSeeder extends Seeder
     public function run()
     {
         DB::table('players')->insert([
-          	'player' => '生谷慶',
-            'number' => 6]);
+          	'name' => '生谷慶',
+            'number' => 6,
+            'team_id'=>1]);
     }
 }

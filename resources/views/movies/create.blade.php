@@ -15,6 +15,8 @@
    
         <form method="post" action="/movies" enctype="multipart/form-data">
             @csrf
+            <h3>動画説明</h3>
+            <textarea name="description"></textarea>
             <h3>相手チーム名</h3>
             <input type="text" name="teamname">
             <h3>試合日</h3>
@@ -25,10 +27,9 @@
             <input type="number" name="number">
             <h3>動画</h3>
             <input type="file" accept="video/" name="movie" class="form-control-file">
-            <h3>動画説明</h3>
-            <textarea name="description"></textarea>
-            <input type="submit" value="store">
+            
+            <input type="submit" value="作成">
         </form>
-        <div>[<a href="/">back</a>]</div>
+        <div>[<a href="/">戻る</a>]</div>
     </body>
 </html>
