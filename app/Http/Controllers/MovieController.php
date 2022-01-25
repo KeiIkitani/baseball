@@ -10,6 +10,7 @@ use App\Comment;
 use Illuminate\Http\Request;
 use Storage;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -35,13 +36,14 @@ class MovieController extends Controller
     }
         public function show(Movie $movie)
     {
-        return view('movies/show')->with(['movie' => $movie,'comments'=> $movie->comments]);
+        $user_id = Auth::id();
+        return view('movies/show')->with(['movie' => $movie,'comments'=> $movie->comments,'user_id'=>$user_id]);
     }
         public function create()
     {
         return view('movies/create');
     }
-        public function store(Movie $movie,Team $team,Player $player,Request $request )
+        public function store(Movie $movie,Team $team,Player $player,User $user,Request $request )
     {
         $team->teamname = $request->teamname;
         $movie->match_day = $request->match_day;
@@ -62,6 +64,8 @@ class MovieController extends Controller
         
         $player->save();
         $movie->player_id=$player->id;
+        
+        $movie->user_id=auth()->user()->id;
         $movie->save();
         
         return redirect('/');
@@ -72,7 +76,7 @@ class MovieController extends Controller
     }
         public function update(Request $request, Movie $movie,Team $team,Player $player)
     {
-       $team->teamname = $request->teamname;
+        $team->teamname = $request->teamname;
         $movie->match_day = $request->match_day;
         $movie->description = $request->description;
         $player->name=$request->player;
@@ -98,6 +102,6 @@ class MovieController extends Controller
         $movie->delete();
         return redirect('/');
     }
-    
+        
     
 }

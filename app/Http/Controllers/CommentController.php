@@ -16,7 +16,7 @@ class CommentController extends Controller
     {
         $comment->movie_id = $request->movie_id;
         $comment->comment = $request->comment;
-        //$comment->user_id = $request->user()->id;
+        $comment->name = $request->name;
         $comment->save();
         return redirect('/movies/' . $request->movie_id);
     }

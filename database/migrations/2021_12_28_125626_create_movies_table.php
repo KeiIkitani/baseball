@@ -18,6 +18,7 @@ class CreateMoviesTable extends Migration
             $table->string('match_day',50)->nullable();
             $table->integer('team_id')->nullable();
             $table->integer('player_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->string('movie')->nullable();
             $table->string('description', 200)->nullable();
             $table->rememberToken();

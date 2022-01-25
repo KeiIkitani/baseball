@@ -12,6 +12,7 @@ class Movie extends Model
     'match_day',
     'team_id',
     'player_id',
+    'user_id',
     'favorite_count',
     'description',
     'movie'
@@ -19,6 +20,10 @@ class Movie extends Model
     public function team()
     {
         return $this->belongsTo('App\Team');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
      public function player()
     {
