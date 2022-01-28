@@ -14,24 +14,84 @@
 
     </head>
     <body> 
-   
-        <form method="post" action="/movies" enctype="multipart/form-data">
-            @csrf
-            <h3>動画説明</h3>
-            <textarea name="description"></textarea>
-            <h3>相手チーム名</h3>
-            <input type="text" name="teamname">
-            <h3>試合日</h3>
-            <input type="date" name="match_day">
-            <h3>選手名</h3>
-            <input type="text" name="player">
-            <h3>背番号</h3>
-            <input type="number" name="number">
-            <h3>動画</h3>
-            <input type="file" accept="video/" name="movie" class="form-control-file">
-            
-            <input type="submit" value="作成">
-        </form>
-        <div>[<a href="/">戻る</a>]</div>
+        <header>
+            <div class=" bg-dark">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                    <div class="container">    
+                        <a class="navbar-brand " href="{{ url('/') }}">
+                            Baseball Movie
+                        </a>
+             　　   　 </div>    
+                </nav> 
+            </div>
+        </header> 
+        <div class="mt-3">
+            <form method="post" action="/movies" enctype="multipart/form-data">
+                @csrf
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">動画説明</p>
+                            </div>
+                            <div class="col-md-8">
+                                <textarea rows="4" cols="50" name="description" type="text" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">相手チーム名</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="teamname">  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">試合日</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="date" name="match_day">  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">選手名</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="player">   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">背番号</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="number"name="number">    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">動画</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="file" accept="video/" name="movie" class="form-control-file">    
+                            </div>
+                        </div>
+                    </div>
+                <p class="text-center">
+                    <button type="submit" class="btn btn-outline-dark">　　作成　　</button>
+                </p>
+            </form>
+        </div>
     </body>
 </html>

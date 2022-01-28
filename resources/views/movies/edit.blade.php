@@ -14,26 +14,94 @@
 
     </head>
     <body> 
-   
-        <form method="post" action="/movies/{{$movie->id}}" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <h3>動画説明</h3>
-            <textarea name="description" >{{ $movie->description }}</textarea>
-            <h3>相手チーム名</h3>
-            <input type="text" name="teamname" value="{{$movie->team->teamname}}">
-            <h3>試合日</h3>
-            <input type="date" name="match_day" value="{{$movie->match_day}}">
-            <h3>選手名</h3>
-            <input type="text" name="player" value="{{$movie->player->name}}">
-            <h3>背番号</h3>
-            <input type="number" name="number" value="{{$movie->player->number}}">
-            <h3>動画</h3>
-            <video src="{{ $movie->movie}}" controls></video>
-            <input type="file" accept="video/" name="movie" class="form-control-file" value="{{$movie->movie}}">
+        <header>
+            <div class=" bg-dark">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                    <div class="container">    
+                        <a class="navbar-brand " href="{{ url('/') }}">
+                            Baseball Movie
+                        </a>
+             　　   　 </div>    
+                </nav> 
+            </div>
+        </header> 
+        <div class="mt-3">
+            <form method="post" action="/movies/{{$movie->id}}" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">動画説明</p>
+                            </div>
+                            <div class="col-md-8">
+                                <textarea rows="4" cols="50" name="description" type="text" class="form-control">{{ $movie->description }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">相手チーム名</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="teamname" value="{{$movie->team->teamname}}">  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">試合日</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="date" name="match_day" value="{{$movie->match_day}}">  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">選手名</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" name="player" value="{{$movie->player->name}}">   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">背番号</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input class="form-control" type="number"name="number" value="{{$movie->player->number}}">    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="text-center">動画</p>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="file" accept="video/" name="movie" class="form-control-file">  
+                                <video class="mt-3"src="{{ $movie->movie}}" controls></video>
+                            </div>
+                        </div>
+                    </div>
+                <p class="text-center">
+                    <button type="submit" class="btn btn-outline-dark">　　保存　　</button>
+                </p>
+            </form>
             
-            <input type="submit" value="保存">
-        </form>
-        <div>[<a href="/movies/{{$movie->id}}">戻る</a>]</div>
+            <div class="text-center">
+                <form action="/movies/{{ $movie->id }}" id="form_{{ $movie->id }}" method="post" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button  type="submit"class="text-center btn btn-outline-dark">この投稿を削除する</button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
