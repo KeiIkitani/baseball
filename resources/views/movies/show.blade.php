@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
 
         <title>Baseball Movies</title>
 
@@ -23,34 +24,29 @@
                     </a>
          　　　        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ">
-                            <a class="nav-link text-white" href="/movies/create">Movie Create <span class="sr-only">(current)</span></a>
+                            <a class="nav-link text-white text-left" href="/movies/create">Movie Create <span class="sr-only">(current)</span></a>
                             @if ($user_id == $movie->user_id)
                                 <a class="nav-link text-white" href="/movies/{{ $movie->id }}/edit">Movie Edit</a>
                             @endif
                         </div>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-content">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> 
                 </div>
             </nav> 
         </div>
     </header>
-    <div class="text-center mt-5 ">
-        <div class="mb-4">
-            <h1>{{ $movie->description }}</h1>
+    <div class="container-sm">
+        <div class=" mt-5 ">
+            <video  src="{{ $movie->movie}}" width="360" height="270"controls ></video>
+            <div class="ml-4 mb-4">
+                <h4>{{ $movie->description }}</h1>
+            </div>
+            <h9 class="text-black-50">VS {{ $movie->team->teamname }}　　{{ $movie->match_day }}　　選手名：{{ $movie->player->name }}　背番号：{{ $movie->player->number }}</h9>
         </div>
-        <video src="{{ $movie->movie}}" controls ></video>
-        <h5 class="text-black-50">VS {{ $movie->team->teamname }}　　{{ $movie->match_day }}　　選手名：{{ $movie->player->name }}　背番号：{{ $movie->player->number }}</h5>
     </div>
-    
+   
     
         <div class="ml-4">
-             <div class="border col-5 ">
+             <div class="border col-md-6">
                 <br>
                     <h3>コメント欄</h3>
                 <br>

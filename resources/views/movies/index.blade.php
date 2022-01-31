@@ -27,9 +27,7 @@
                 
                         </div>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                   
                     <form class="form-inline" action="/" method="get">  
                         @csrf
                         <!--検索フォームにキーワードを入れる -->
@@ -38,7 +36,7 @@
                     </form>
            
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbar-content">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"><a class="nav-link text-white" href="/movies/create">Movie Create </a></span>
                     </button> 
                 </div>
             </nav> 
@@ -50,15 +48,19 @@
                 @foreach ($teams as $team)
                     @foreach ($team->movies as $movie)
                         <div class="col-md-4 mb-2 mt-4">
-                            <div class="card text-center border-dark bg-white">
+                            <div class="card  border-dark bg-white">
                                 <div class="card-body">
-                                    <h1 class="card-title">{{ $movie->description }}</h1>
+                                    <video class="img-thumbnail" src="{{ $movie->movie}}" controls ></video>
+                                    <h3 class="card-title">{{ $movie->description }}</h3>
                                     <p class="card-text">
                                         <div>相手チーム：{{ $team->teamname }}</div>
                                         <div>対戦日：{{ $movie->match_day }}</div>
                                         <div>選手名：{{ $movie->player->name }}</div>
+                                        
                                     </p>
                                     <a href='/movies/{{$movie->id}} ' class="btn btn-dark">read more</a>
+                                   
+                                    
                                 </div>
                             </div>
                         </div>

@@ -31,62 +31,62 @@
                 @method('PUT')
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="text-center">動画説明</p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <textarea rows="4" cols="50" name="description" type="text" class="form-control">{{ $movie->description }}</textarea>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="text-center">相手チーム名</p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input class="form-control" type="text" name="teamname" value="{{$movie->team->teamname}}">  
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="text-center">試合日</p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input class="form-control" type="date" name="match_day" value="{{$movie->match_day}}">  
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="text-center">選手名</p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input class="form-control" type="text" name="player" value="{{$movie->player->name}}">   
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="text-center">背番号</p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input class="form-control" type="number"name="number" value="{{$movie->player->number}}">    
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <p class="text-center">動画</p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <input type="file" accept="video/" name="movie" class="form-control-file">  
-                                <video class="mt-3"src="{{ $movie->movie}}" controls></video>
+                                <video class="mt-3"src="{{ $movie->movie}}" width="360" height="270"controls></video>
                             </div>
                         </div>
                     </div>
