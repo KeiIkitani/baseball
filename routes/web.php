@@ -11,7 +11,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/comments', 'CommentController@store');
 });   
     Route::get('/home', 'HomeController@index')->name('home');
-    
+    Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
+    Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
 
 

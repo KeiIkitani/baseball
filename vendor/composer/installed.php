@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '6d1b62ce2216123807b76d6928804f2f416eff04',
+        'reference' => '6495ebbd83b3851311619345a8b21dbe6cb50237',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -376,7 +376,16 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '6d1b62ce2216123807b76d6928804f2f416eff04',
+            'reference' => '6495ebbd83b3851311619345a8b21dbe6cb50237',
+            'dev_requirement' => false,
+        ),
+        'laravel/socialite' => array(
+            'pretty_version' => 'v5.5.0',
+            'version' => '5.5.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/socialite',
+            'aliases' => array(),
+            'reference' => 'cb5b5538c207efa19aa5d7f46cd76acb03ec3055',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
@@ -431,6 +440,15 @@
             'install_path' => __DIR__ . '/../league/mime-type-detection',
             'aliases' => array(),
             'reference' => 'aa70e813a6ad3d1558fc927863d47309b4c23e69',
+            'dev_requirement' => false,
+        ),
+        'league/oauth1-client' => array(
+            'pretty_version' => 'v1.10.0',
+            'version' => '1.10.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/oauth1-client',
+            'aliases' => array(),
+            'reference' => '88dd16b0cff68eb9167bfc849707d2c40ad91ddc',
             'dev_requirement' => false,
         ),
         'mockery/mockery' => array(
@@ -724,8 +742,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
