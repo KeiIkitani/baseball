@@ -43,6 +43,10 @@ class MovieController extends Controller
     {
         return view('movies/create');
     }
+        public function image()
+    {
+        return view('movies/image');
+    }
         public function store(Movie $movie,Team $team,Player $player,User $user,Request $request )
     {
         $team->teamname = $request->teamname;
@@ -50,6 +54,7 @@ class MovieController extends Controller
         $movie->description = $request->description;
         $player->name=$request->player;
         $player->number=$request->number;
+        $movie->image=$request->image;
         
         //s3アップロード開始
         $file = $request->file('movie');
@@ -57,6 +62,10 @@ class MovieController extends Controller
         $path = Storage::disk('s3')->putFile('baseball', $file, 'public');
         // アップロードした動画のフルパスを取得
         $movie->movie = Storage::disk('s3')->url($path);
+        
+        $file = $request->file('image');
+        $path = Storage::disk('s3')->putFile('baseball', $file, 'public');
+        $movie->image = Storage::disk('s3')->url($path);
         
         $team->save();
         $player->team_id=$team->id;
@@ -81,11 +90,15 @@ class MovieController extends Controller
         $movie->description = $request->description;
         $player->name=$request->player;
         $player->number=$request->number;
-        
+        $movie->image=$request->image;
         
         $file = $request->file('movie');
         $path = Storage::disk('s3')->putFile('baseball', $file, 'public');
         $movie->movie = Storage::disk('s3')->url($path);
+        
+        $file = $request->file('image');
+        $path = Storage::disk('s3')->putFile('baseball', $file, 'public');
+        $movie->image = Storage::disk('s3')->url($path);
         
         $team->save();
         $player->team_id=$team->id;

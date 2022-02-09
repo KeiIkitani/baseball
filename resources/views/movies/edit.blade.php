@@ -11,7 +11,7 @@
 
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+        
     </head>
     <body> 
         <header>
@@ -21,6 +21,21 @@
                         <a class="navbar-brand " href="{{ url('/') }}">
                             Baseball Movie
                         </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse " id="navbar-content">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <div class="collapse navbar-collapse " id="navbar-content">
+                                        <div class="navbar-nav ">
+                                            <a class="nav-link text-white" href="/movies/create">Movie Create <span class="sr-only">(current)</span></a>
+                                            <a class="nav-link text-white" href="/movies/image">Image Create <span class="sr-only">(current)</span></a>
+                                        </div>
+                                    </div>
+                                </li>
+             　              </ul>　　     
+                        </div>
              　　   　 </div>    
                 </nav> 
             </div>
@@ -90,6 +105,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="text-center">サムネイル画像</p>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="input" type="file" accept=" image/jpg" name="image" class="form-control-file">
+                                <img class=""src="{{ $movie->image }}" >
+                            </div>
+                        </div>
+                    </div>  
+                </div>
                 <p class="text-center">
                     <button type="submit" class="btn btn-outline-dark">　　保存　　</button>
                 </p>

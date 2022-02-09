@@ -4,6 +4,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/', 'MovieController@index');
     Route::post('/movies', 'MovieController@store');
     Route::get('/movies/create', 'MovieController@create');
+    Route::get('/movies/image', 'MovieController@image');
     Route::get('/movies/{movie}', 'MovieController@show');
     Route::put('/movies/{movie}', 'MovieController@update');
     Route::delete('/movies/{movie}', 'MovieController@delete');
