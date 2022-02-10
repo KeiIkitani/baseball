@@ -96,11 +96,12 @@ Google Loginも行うことが可能。
 
 <div class="row">
 <img width="250" alt="2022-02-09 (14)" src="https://user-images.githubusercontent.com/94359650/153164955-71342e32-83d0-48c3-8de9-8aa3fa2ed131.png">
-<img width="250" alt="2022-02-09 (19)" src="https://user-images.githubusercontent.com/94359650/153173556-7d56f9aa-e12d-4fc2-9689-b4085dd9ae73.png">
+<img width="400" alt="2022-02-10 (3)" src="https://user-images.githubusercontent.com/94359650/153412275-47ae2fa6-23da-4a3e-8fbd-3bb578cd0bda.png">
+
 
 </div>
 作成したユーザーとログインしたユーザーのIDが同じだった場合のみ投稿編集が可能。
-右が投稿編集が可能で、左が投稿編集不可。
+左が投稿編集が可能で、右が投稿編集不可。
 投稿詳細画面の上部にある「Movie Edit」をクリックすることで、投稿編集画面へページ遷移する。
 <br><br/>
 <img width="700" alt="2022-02-09 (3)" src="https://user-images.githubusercontent.com/94359650/153165183-270b00b3-0644-451b-bda7-53922dc700d3.png">
