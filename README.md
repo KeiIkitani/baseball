@@ -1,79 +1,141 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+## Baseball Movie
+現在のコロナ禍で入場制限が多くの場所でかかっている。
+スポーツをしている小学生、中学生の試合会場でも同じく、入場制限がかかり、
+自分の子供がプレーしている姿を見て応援することができない親が増えている。
+子供がプレーしている姿を動画で投稿し、プレーしている姿を見ることができない親に見てほしいという思いで、
+「Baseball Movie」を作成した。<br><br/>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+URL=http://rocky-brushlands-64303.herokuapp.com/
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 使用技術
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- AWS
+  - S3
+  - EC2
+  - Cloud9
+- Laravel
+- Bootstrap
+- HTML
+- PHP
+- CSS
+- Javascript
+- Google Login API
 
-## Learning Laravel
+## 機能一覧
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- ユーザー登録、ログイン機能
+- 動画投稿機能
+  - 相手チーム名、試合日、選手名、背番号、動画説明登録機能
+  - 動画登録機能
+- 投稿編集機能
+- 投稿削除機能
+- キーワード検索機能
+- コメント機能
+- サムネイル画像作成機能
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 機能及びページ説明
 
-## Laravel Sponsors
+### ・ユーザー登録機能 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<img width="700" alt="2022-01-31 (21)" src="https://user-images.githubusercontent.com/94359650/152684125-d8096df8-54f3-4f80-8a5c-d816ba7d3cc1.png">
+ユーザー登録画面(会員登録画面)。
+ユーザー登録またはログインを行うことで投稿一覧画面へページ遷移する。
+<br><br/>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+### ・ログイン機能
 
-## Contributing
+<img width="700" alt="2022-02-05 (3)" src="https://user-images.githubusercontent.com/94359650/152684348-c996569d-d92f-4f58-ac04-902b1aaeb1c1.png">
+ログイン画面。
+<br><br/>
+<img width="200" alt="2022-02-05 (4)" src="https://user-images.githubusercontent.com/94359650/152684427-dc341fed-3422-4588-a5ec-29255913d4e6.png">
+Google Loginも行うことが可能。
+<br><br/>
+<img width="200" alt="2022-01-31 (22)" src="https://user-images.githubusercontent.com/94359650/152684663-13b586c7-116e-4783-9274-ab837dd74a73.png">
+クリックすることで、ログイン画面とユーザー登録画面へページ遷移することができる。
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### ・動画投稿機能
 
-## Code of Conduct
+<img width="200" alt="2022-02-07 (3)" src="https://user-images.githubusercontent.com/94359650/152742442-7790b782-b234-403b-bb63-0dddc587d860.png">
+投稿一覧画面上部の「Movie Create」をクリックすることで、投稿作成画面へページ遷移する。
+<br><br/>
+<img width="700" alt="2022-02-09 (5)" src="https://user-images.githubusercontent.com/94359650/153169154-3ca90d8b-00e9-4a93-8a26-1bbd301365a2.png">
+投稿作成画面。
+動画説明（動画のタイトルのようなもの）、相手チーム名、試合日、選手名、背番号、動画、サムネイル画像を登録する。
+<br><br/>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### ・投稿一覧画面
 
-## Security Vulnerabilities
+<img width="700" alt="2022-02-09 (7)" src="https://user-images.githubusercontent.com/94359650/153160828-5b456fd0-2a50-44e3-9787-1c91daab9912.png">
+投稿一覧画面。
+投稿作成画面で登録されたサムネイル画像、動画説明、相手チーム名、試合日、選手名が表示される。
+<br><br/>
+<img width="200" alt="2022-01-31 (10)" src="https://user-images.githubusercontent.com/94359650/152685296-e294e0e6-3c43-49a8-935a-e4ae80e4d3aa.png">
+「read more」をクリックすることで、投稿詳細画面へページ遷移する。
+<br><br/>
+<img width="200" alt="2022-01-31 (6)" src="https://user-images.githubusercontent.com/94359650/152685085-694591ec-9483-4970-9aee-dd91b16eb952.png">
+「Baseball Movie」をクリックすることで、投稿一覧画面へページ遷移する。
+<br><br/>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### ・投稿詳細画面
 
-## License
+<img width="" alt="2022-02-09 (11)" src="https://user-images.githubusercontent.com/94359650/153161961-ea96b7a0-ccb6-4509-bde0-d7dbce47bde5.png">
+投稿詳細画面。
+<br><br/>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# baseball
+### ・コメント機能
+
+<img width="700" alt="2022-01-31 (2)" src="https://user-images.githubusercontent.com/94359650/152685944-2d03d16d-3fe3-492a-964b-5fd113a5fcb7.png">
+コメント欄に表示される表示名とコメントを入力し、「書き込む」をクリックすることで、コメントが入力フォームの下に投稿される。
+コメントの表示名を自由な名前で投稿できるようにするため、あえて表示名を入力してもらう仕組みになっている。
+投稿されたコメントは、表示名、コメント、コメント投稿時間が表示される。
+<br><br/>
+
+### ・投稿編集機能
+
+<div class="row">
+<img width="250" alt="2022-02-09 (14)" src="https://user-images.githubusercontent.com/94359650/153164955-71342e32-83d0-48c3-8de9-8aa3fa2ed131.png">
+<img width="250" alt="2022-02-09 (19)" src="https://user-images.githubusercontent.com/94359650/153173556-7d56f9aa-e12d-4fc2-9689-b4085dd9ae73.png">
+
+</div>
+作成したユーザーとログインしたユーザーのIDが同じだった場合のみ投稿編集が可能。
+右が投稿編集が可能で、左が投稿編集不可。
+投稿詳細画面の上部にある「Movie Edit」をクリックすることで、投稿編集画面へページ遷移する。
+<br><br/>
+<img width="700" alt="2022-02-09 (3)" src="https://user-images.githubusercontent.com/94359650/153165183-270b00b3-0644-451b-bda7-53922dc700d3.png">
+投稿編集画面。
+デフォルトでそれまで入力されていた値が表示される。
+それを書き換え、「保存」をクリックすることで、編集が終わり、投稿詳細画面にページ遷移する。
+<br><br/>
+
+### ・投稿削除機能
+<img width="200" alt="2022-01-31 (19)" src="https://user-images.githubusercontent.com/94359650/152686197-8c663a64-d243-4cde-899c-b04474871895.png">
+投稿編集画面の「保存」ボタンの下の「この投稿を削除する」をクリックすることで投稿が削除され、投稿一覧画面へページ遷移する。
+<br><br/>
+
+### ・キーワード検索機能
+<img width="200" alt="2022-02-07 (2)" src="https://user-images.githubusercontent.com/94359650/152737924-6487466e-87fc-4350-a45a-e56932f1e032.png">
+キーワード入力欄に、キーワード（試合日、相手チーム名、選手名、動画説明欄に入力したものなど）を入力し「検索」をクリックすることで、値にヒットしたものが表示される。
+より多くのものが検索結果にヒットするような仕組みにした。
+キーワード入力欄を空欄で「検索」をクリックすることで、すべての投稿が表示される。
+<br><br/>
+
+### ・サムネイル画像作成機能
+
+<img width="200" alt="2022-02-09 (12)" src="https://user-images.githubusercontent.com/94359650/153165511-a81e4d98-db58-4339-a94b-03f21e3bc5ac.png">
+「Image Create」をクリックすることで、サムネイル画像作成画面にページ遷移する。
+<br><br/>
+<img width="700" alt="2022-02-09 (16)" src="https://user-images.githubusercontent.com/94359650/153166534-7da50fd2-011b-43a5-acc7-dfd10c3e0b33.png">
+サムネイル画像作成画面。
+動画ファイルを選択し、サムネイル画像にしたいタイミングまで動画を動かす。
+それにより、ページの下に動画のタイミングの画像が表示される。
+そして、「ダウンロード」をクリックすることで、画像がダウンロードされる。
+<br><br/>
+
+## テーブル構成
+<img width="700" alt="2022-02-09 (18)" src="https://user-images.githubusercontent.com/94359650/153171734-2df7bb15-be5a-4746-ad80-096ff6fb42ad.png">
+
+
+
+
