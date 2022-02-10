@@ -66,12 +66,12 @@
                         </div>
                     </form>
                     <div class="form-group row mt-2">
-    <div class="col-md-8 offset-md-4">
-        <a href="/login/google" class="btn btn-secondary" role="button">
-            Google Login
-        </a>
-    </div>
-</div>
+                        <div class="col-md-8 offset-md-4">
+                            <a href="/login/google" >
+                                <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

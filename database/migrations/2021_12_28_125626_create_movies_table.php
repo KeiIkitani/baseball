@@ -20,6 +20,7 @@ class CreateMoviesTable extends Migration
             $table->integer('player_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->string('movie')->nullable();
+            $table->string('image')->nullable();
             $table->string('description', 200)->nullable();
             $table->rememberToken();
             $table->timestamps();

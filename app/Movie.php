@@ -15,7 +15,8 @@ class Movie extends Model
     'user_id',
     'favorite_count',
     'description',
-    'movie'
+    'movie',
+    'image'
     ];
     public function team()
     {
